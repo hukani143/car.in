@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add a New Card</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="card-container">
+        <form class="card-form">
+            <h2>Add a New Card</h2>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="cardholder-name">Cardholder Name</label>
+                <input type="text" id="cardholder-name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-credit-card"></i>
+                    <input type="text" id="card-number" placeholder="5126-5987-2214-7621" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="text" id="expiry-date" placeholder="MM / YYYY" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cvc">CVC</label>
+                    <input type="text" id="cvc" placeholder="123" required>
+                </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="save-card">
+                <label for="save-card">Save default payment method</label>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-credit-card"></i> Add Payment Method
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.card-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get values from the input fields
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const cardNumber = document.getElementById('card-number').value;
+
+            // Alert the user with the information
+            alert(`Payment Method Added Successfully!\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nCard Number: ${cardNumber}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
+            color: #f1f1f1;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff6a00;
+            transition: color 0.3s ease;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 0;
+            background: #ff6a00;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .user-options i {
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .user-options i:hover {
+            color: #ff6a00;
+        }
+
+        /* Container Styles */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 60px; /* Adjusted for fixed header */
+        }
+
+        /* Form Styles */
+        .form-box {
+            background-color: #2b2b2b;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            transition: transform 0.4s ease;
+        }
+
+        .form-box:hover {
+            transform: translateY(-10px);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #f1f1f1;
+            font-size: 28px;
+        }
+
+        p {
+            margin-bottom: 25px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #444;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #9f5c25;
+            outline: none;
+        }
+
+        button {
+            background-color: #9f5c25;
+            color: white;
+            padding: 14px 0;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e55d00;
+            box-shadow: 0 8px 15px rgba(156, 131, 16, 0.3);
+        }
+
+        .phone-text {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .phone-text span {
+            font-weight: bold;
+            color: #b86322;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .input-group {
+                flex-direction: column;
+            }
+
+            .form-box {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Luxury<span>.cars</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="user-options">
+            <i class="fas fa-user"></i>
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Contact Us</h2>
+            <p>We will get back to you asap!</p>
+            <form id="contactForm">
+                <div class="input-group">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" id="submitBtn">Send</button>
+            </form>
+            <p class="phone-text">You may also call us at <span>123-456-789</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            alert("Form Submitted!");
+        });
+    </script>
+</body>
+</html>
